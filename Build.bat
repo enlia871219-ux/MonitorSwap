@@ -18,13 +18,12 @@ if not exist "%~dp0MonitorSwap.cs" (
     exit /b 1
 )
 
-if not exist "%~dp0Icon_Gamgo.ico" (
-    echo Icon_Gamgo.ico not found.
-    pause
-    exit /b 1
+if exist "%~dp0Icon_Gamgo.ico" (
+    "%CSC%" /nologo /target:winexe /out:"%~dp0MonitorSwap.exe" /win32icon:"%~dp0Icon_Gamgo.ico" /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "%~dp0MonitorSwap.cs"
+) else (
+    echo Icon_Gamgo.ico not found. Building with the default executable icon.
+    "%CSC%" /nologo /target:winexe /out:"%~dp0MonitorSwap.exe" /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "%~dp0MonitorSwap.cs"
 )
-
-"%CSC%" /nologo /target:winexe /out:"%~dp0MonitorSwap.exe" /win32icon:"%~dp0Icon_Gamgo.ico" /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "%~dp0MonitorSwap.cs"
 if errorlevel 1 (
     echo Build failed.
     pause
