@@ -11,9 +11,10 @@ Portable Windows utility that swaps the positions of windows between the first t
 
 ## Build on Windows
 
-1. Keep `Build.bat`, `MonitorSwap.cs`, and `Icon_Gamgo.ico` together in the same folder.
-2. Double-click `Build.bat`.
-3. The build creates `MonitorSwap.exe` in that folder and embeds `Icon_Gamgo.ico` as the executable icon.
+1. Keep `Build.bat` and `MonitorSwap.cs` together in the same folder.
+2. To embed the custom app icon, also place `Icon_Gamgo.ico` in that folder.
+3. Double-click `Build.bat`.
+4. The build creates `MonitorSwap.exe` in that folder. If `Icon_Gamgo.ico` is present, it is embedded; otherwise the default executable icon is used.
 
 The build uses the .NET Framework C# compiler (`csc.exe`) and references Windows Forms and Drawing.
 
